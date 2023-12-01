@@ -23,7 +23,7 @@ public class Day1Part2 {
     }
     private void readFile(){
         try{
-            File file1 = new File("input.txt");
+            File file1 = new File("test.txt");
             Scanner sc1 = new Scanner(file1);
             while(sc1.hasNext()){
                 input.add(sc1.next());
@@ -37,7 +37,6 @@ public class Day1Part2 {
     private void count(){
         int sum = 0;
         for(String row : input){
-            System.out.println(row);
             char[] characters = row.toCharArray();
             ArrayList<Integer> charInt = new ArrayList<>();
             String charCount = "";
@@ -53,17 +52,14 @@ public class Day1Part2 {
                 //String numbers -> number
                 for(String hashVal : words.keySet()){
                     if(charCount.contains(hashVal)){
-                        //System.out.println("Contains " + hashVal);
                         charInt.add(words.get(hashVal));
                         charCount = charCount.substring(charCount.length()-1);
-                        //System.out.println("charCount: " + charCount);
                     }
 
                 }
 
 
             }
-            //System.out.println();
 
             //Get 1st and last value
             String value = "";
@@ -75,13 +71,6 @@ public class Day1Part2 {
                 value += String.valueOf(charInt.get(charInt.size()-1));
             }
             sum += Integer.parseInt(value);
-
-            //Print array
-            for(int num : charInt){
-                System.out.print(num);
-            }
-            System.out.println();
-            System.out.println("Sum: " + sum);
         }
         System.out.println(sum);
     }
